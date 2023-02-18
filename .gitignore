@@ -1,0 +1,7 @@
+# Yocto
+poky/
+
+# Build
+bblayers.conf
+local.conf
+templateconf.cfg

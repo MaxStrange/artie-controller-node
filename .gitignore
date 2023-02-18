@@ -5,3 +5,6 @@ poky/
 bblayers.conf
 local.conf
 templateconf.cfg
+
+# Layers
+meta-raspberrypi/

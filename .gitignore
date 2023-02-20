@@ -5,6 +5,13 @@ poky/
 bblayers.conf
 local.conf
 templateconf.cfg
+downloads/
+tmp/
+cache/
+sstate-cache/
+bitbake-cookerdaemon.log
+pi.img
 
 # Layers
 meta-raspberrypi/
+/psplash/

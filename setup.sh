@@ -21,3 +21,7 @@ if [[ ! -d meta-raspberrypi ]]; then
     git checkout -t origin/kirkstone -b kirkstone-local
     cd ..
 fi
+
+if [[ ! -d psplash ]]; then
+    git clone https://git.yoctoproject.org/psplash
+fi

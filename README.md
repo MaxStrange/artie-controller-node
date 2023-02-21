@@ -13,4 +13,3 @@ after running the setup script. Then run `bitbake <IMAGE>`, where <IMAGE> is one
 
 * core-image-base
 * artie-image-dev
-* artie-image-release

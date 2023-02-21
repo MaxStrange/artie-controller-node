@@ -5,3 +5,7 @@ IMAGE_FEATURES += "splash"
 LICENSE = "MIT"
 
 inherit core-image
+
+# Include application(s) and dependencies
+IMAGE_INSTALL += " artie-cli \
+                 "

@@ -12,3 +12,5 @@ To build the image for development (not release), run `source poky/oe-init-build
 after running the setup script. Then run `bitbake <IMAGE>`, where <IMAGE> is one of:
 
 * core-image-base
+* artie-image-dev
+* artie-image-release

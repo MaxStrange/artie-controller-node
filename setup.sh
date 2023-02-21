@@ -22,6 +22,7 @@ if [[ ! -d meta-raspberrypi ]]; then
     cd ..
 fi
 
-if [[ ! -d psplash ]]; then
-    git clone https://git.yoctoproject.org/psplash
+if [[ ! -d meta-splash ]]; then
+    git clone https://github.com/hamzamac/meta-splash.git
+    cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 fi

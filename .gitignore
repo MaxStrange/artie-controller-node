@@ -14,4 +14,4 @@ pi.img
 
 # Layers
 meta-raspberrypi/
-/psplash/
+meta-splash/

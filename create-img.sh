@@ -30,6 +30,10 @@ if [ ! -f ${RTFS} ]; then
     echo "No root filesystem found at ${RTFS}"
 fi
 
+if [ -f ${PI_IMG} ]; then
+    rm ${PI_IMG}
+fi
+
 # Create the pi.img file
 dd if=/dev/zero of=${PI_IMG} bs=128M count=16
 

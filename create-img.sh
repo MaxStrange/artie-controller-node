@@ -1,6 +1,6 @@
 #! /bin/bash
 IMAGESDIR=$(pwd)/build/tmp/deploy/images/raspberrypi4-64
-RTFS_NAME="core-image-base-raspberrypi4-64.tar.bz2"
+RTFS_NAME="artie-image-dev-raspberrypi4-64.tar.bz2"
 
 # All the stuff we need to copy to the SD card image
 KERNELIMG=${IMAGESDIR}/Image
@@ -28,6 +28,7 @@ fi
 
 if [ ! -f ${RTFS} ]; then
     echo "No root filesystem found at ${RTFS}"
+    exit 1
 fi
 
 if [ -f ${PI_IMG} ]; then

@@ -16,11 +16,12 @@ S = "${WORKDIR}/git"
 SETUPTOOLS_SETUP_PATH = "${S}/cli"
 inherit setuptools3
 
-RDEPENDS_${PN} += " python3 \
+RDEPENDS:${PN} += " python3 \
                     python3-modules \
                     python3-numpy \
                     python3-smbus2 \
                     rpi-gpio \
+                    i2c-tools \
                   "
 
 # Setuptools3 (at least in Kirkstone) assumes a setup.py.

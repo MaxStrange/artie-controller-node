@@ -2,3 +2,5 @@ SUMMARY = "A console-only image suitable for dev/debug work on Artie. NOT suitab
 LICENSE = "MIT"
 
 inherit artie-image-base
+
+IMAGE_INSTALL += " vim"

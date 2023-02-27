@@ -26,3 +26,10 @@ if [[ ! -d meta-splash ]]; then
     git clone https://github.com/hamzamac/meta-splash.git
     cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 fi
+
+if [[ ! -d meta-openembedded ]]; then
+    git clone git://git.openembedded.org/meta-openembedded
+    cd meta-openembedded
+    git checkout -t origin/kirkstone -b kirkstone-local
+    cd ..
+fi

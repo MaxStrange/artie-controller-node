@@ -15,3 +15,4 @@ pi.img
 # Layers
 meta-raspberrypi/
 meta-splash/
+meta-openembedded/

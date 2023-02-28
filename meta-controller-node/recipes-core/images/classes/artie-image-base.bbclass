@@ -7,5 +7,5 @@ LICENSE = "MIT"
 inherit core-image
 
 IMAGE_INSTALL += " packagegroup-artie-cli \
-                   pico-openocd \
+                   openocd \
                  "

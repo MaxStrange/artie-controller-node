@@ -21,4 +21,5 @@ EXTRA_OECONF += " --enable-bcm2835gpio"
 do_install:append() {
     install -d ${D}/usr/share/openocd/scripts/interface
     install -m 0644 -d ${WORKDIR}/raspberrypi-right-swd.cfg ${D}/usr/share/openocd/scripts/interface/raspberrypi-right-swd.cfg
+    install -m 0644 -d ${WORKDIR}/raspberrypi-mouth-swd.cfg ${D}/usr/share/openocd/scripts/interface/raspberrypi-mouth-swd.cfg
 }

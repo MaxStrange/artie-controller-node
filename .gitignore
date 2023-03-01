@@ -16,3 +16,4 @@ pi.img
 meta-raspberrypi/
 meta-splash/
 meta-openembedded/
+meta-virtualization/

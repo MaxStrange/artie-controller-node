@@ -33,3 +33,10 @@ if [[ ! -d meta-openembedded ]]; then
     git checkout -t origin/kirkstone -b kirkstone-local
     cd ..
 fi
+
+if [[ ! -d meta-virtualization ]]; then
+    git clone https://git.yoctoproject.org/git/meta-virtualization
+    cd meta-virtualization
+    git checkout -t origin/kirkstone -b kirkstone-local
+    cd ..
+fi

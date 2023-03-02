@@ -3,4 +3,6 @@ LICENSE = "MIT"
 
 inherit artie-image-base
 
-IMAGE_INSTALL += " vim"
+IMAGE_INSTALL += " vim \
+                   docker-check \
+                 "

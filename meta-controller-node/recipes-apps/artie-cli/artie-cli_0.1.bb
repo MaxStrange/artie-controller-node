@@ -16,13 +16,6 @@ S = "${WORKDIR}/git"
 SETUPTOOLS_SETUP_PATH = "${S}/cli"
 inherit setuptools3
 
-# Seems like there is a race condition, where this recipe
-# doesn't create all the needed Python directories it depends on.
-# Rather than sorting it out and ensuring the installation happens
-# properly, let's just depend on a Python package we know installs
-# correctly. That way, that package will pave the way for us.
-DEPENDS += " python3-numpy"
-
 RDEPENDS:${PN} += " python3 \
                     python3-modules \
                     python3-numpy \
@@ -36,6 +29,7 @@ RDEPENDS:${PN} += " python3 \
 # So this step adds a setup.py script that simply calls setup()
 # making use of the toml config in the repo instead.
 do_configure:append() {
+  rm -f "${SETUPTOOLS_SETUP_PATH}"/setup.py
   touch "${SETUPTOOLS_SETUP_PATH}"/setup.py
   echo "from setuptools import setup" >> "${SETUPTOOLS_SETUP_PATH}"/setup.py
   echo "setup(" >> "${SETUPTOOLS_SETUP_PATH}"/setup.py

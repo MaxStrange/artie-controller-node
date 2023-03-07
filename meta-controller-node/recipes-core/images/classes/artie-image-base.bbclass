@@ -6,6 +6,7 @@ inherit core-image
 IMAGE_FEATURES += "splash"
 
 IMAGE_INSTALL += " packagegroup-artie-cli \
+                   packagegroup-network \
                    openocd \
                    docker \
                  "

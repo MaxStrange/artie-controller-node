@@ -40,10 +40,3 @@ if [[ ! -d meta-virtualization ]]; then
     git checkout -t origin/kirkstone -b kirkstone-local
     cd ..
 fi
-
-if [[ ! -d meta-arm ]]; then
-    git clone git://git.yoctoproject.org/meta-arm
-    cd meta-arm
-    git checkout -t origin/kirkstone -b kirkstone-local
-    cd ..
-fi

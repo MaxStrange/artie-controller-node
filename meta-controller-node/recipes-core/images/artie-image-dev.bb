@@ -5,5 +5,4 @@ inherit artie-image-base
 
 IMAGE_INSTALL += " vim \
                    docker-check \
-                   packagegroup-artie-debug-packages \
                  "

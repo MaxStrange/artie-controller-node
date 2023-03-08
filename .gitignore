@@ -17,3 +17,6 @@ meta-raspberrypi/
 meta-splash/
 meta-openembedded/
 meta-virtualization/
+
+# Secrets
+meta-controller-node/recipes-apps/docker/files/daemon-fragment.json

@@ -40,3 +40,12 @@ if [[ ! -d meta-virtualization ]]; then
     git checkout -t origin/kirkstone -b kirkstone-local
     cd ..
 fi
+
+# Add .gitignored files
+DAEMON_PATH="meta-controller-node/recipes-apps/docker/files/daemon-fragment.json"
+if [[ ! -f $DAEMON_PATH ]]; then
+    touch $DAEMON_PATH
+    echo "{\n" >> $DAEMON_PATH
+    echo "  \"insecure-registries\": [\"POINT ME TO LOCAL REGISTRY\"]\n" >> $DAEMON_PATH
+    echo "}\n" >> $DAEMON_PATH
+fi

@@ -30,6 +30,11 @@ do_install[prefuncs] += " combine_jsons"
 
 # Add the combined daemon.json into the right location for Docker to pick it up
 do_install:append() {
+    # Install Docker into systemd (for some reason it doesn't work automatically)
+    install -d ${D}${sysconfdir}/systemd/system/multi-user.target.wants
+    ln -s -r ${D}${nonarch_base_libdir}/systemd/system/docker.service ${D}${sysconfdir}/systemd/system/multi-user.target.wants/docker.service
+
+    # Install the custom Docker configuration
     install -d ${D}${sysconfdir}/docker
     install -m 0644 ${WORKDIR}/daemon-combined.json ${D}${sysconfdir}/docker/daemon.json
 }

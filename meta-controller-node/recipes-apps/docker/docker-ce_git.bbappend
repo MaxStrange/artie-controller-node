@@ -3,12 +3,15 @@ DESCRIPTION = "${SUMMARY}"
 
 # We place some JSON files here and need to combine them
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-JSON_FRAGMENTS = "${S}/daemon-fragment.json"
+JSON_FRAGMENTS = "${WORKDIR}/daemon-fragment.json"
+SRC_URI += " file://daemon.json \
+             file://daemon-fragment.json \
+           "
 
 # Run a Python script to combine all the JSON fragments into one
 python combine_jsons() {
     import json
-    basejsonfpath = f"{d.getVar('S')}/daemon.json"
+    basejsonfpath = f"{d.getVar('WORKDIR')}/daemon.json"
     with open(basejsonfpath, 'r') as f:
         basejson = json.load(f)
 
@@ -19,7 +22,7 @@ python combine_jsons() {
             fragmentjson = json.load(f)
             combined.update(fragmentjson)
 
-    combined_fpath = f"{d.getVar('S')}/daemon-combined.json"
+    combined_fpath = f"{d.getVar('WORKDIR')}/daemon-combined.json"
     with open(combined_fpath, 'w') as f:
         json.dump(combined, f, indent=2)
 }

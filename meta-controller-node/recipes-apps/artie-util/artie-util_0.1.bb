@@ -1,5 +1,4 @@
-SUMMARY = "Recipe for adding Artie CLI application."
-DESCRIPTION = "Recipe for adding Artie CLI application."
+SUMMARY = "Recipe for adding Artie Util Python library."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
@@ -13,12 +12,10 @@ PV = "1.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 # This will cause this recipe to act using the setuptools3 do_compile/do_install tasks
-SETUPTOOLS_SETUP_PATH = "${S}/cli"
+SETUPTOOLS_SETUP_PATH = "${S}/cli/libraries/artie-util"
 inherit setuptools3
 
 RDEPENDS:${PN} += " python3 \
                     python3-modules \
-                    artie-i2c \
-                    artie-util \
-                    python-zerorpc \
+                    rpi-gpio \
                   "

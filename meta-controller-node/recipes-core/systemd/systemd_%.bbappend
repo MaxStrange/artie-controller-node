@@ -1,0 +1,1 @@
+PACKAGECONF:append = " networkd resolved"

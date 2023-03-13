@@ -49,3 +49,10 @@ if [[ ! -f $DAEMON_PATH ]]; then
     echo "  \"insecure-registries\": [\"POINT ME TO LOCAL REGISTRY\"]\n" >> $DAEMON_PATH
     echo "}\n" >> $DAEMON_PATH
 fi
+
+HOST_PATH="meta-controller-node/recipes-core/network/files/host-fragment"
+if [[ ! -f $HOST_PATH ]]; then
+    touch $HOST_PATH
+    # This is a file I use to add useful IP addresses to the /etc/hosts file on the rootfs.
+    # Typically, it would be empty.
+fi

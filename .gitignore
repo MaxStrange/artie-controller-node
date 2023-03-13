@@ -20,3 +20,4 @@ meta-virtualization/
 
 # Secrets
 meta-controller-node/recipes-apps/docker/files/daemon-fragment.json
+meta-controller-node/recipes-core/network/files/host-fragment

@@ -8,7 +8,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = "git://github.com/MaxStrange/Artie.git;protocol=https;branch=main \
            file://led-daemon.service \
           "
-SRC_URI[sha256sum] = "254fd7ed5b2fd36ee51f3249a7685dcb9372d4a1"
+SRC_URI[sha256sum] = "${ARTIE_RELEASE_SHA256}"
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 
@@ -16,11 +16,11 @@ PV = "1.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 RDEPENDS:${PN} += " python3 \
+                    python3-core \
                     python3-modules \
                     artie-i2c \
                     artie-util \
                     rpi-gpio \
-                    python-dbus \
                   "
 
 LED_DAEMON_INSTALL_PATH = "${sysconfdir}/systemd/system/led-daemon.service"
@@ -41,6 +41,8 @@ do_configure() {
 
 # Install into systemd
 do_install() {
+    install -d ${D}${sysconfdir}/systemd/system
+    install -d ${D}${bindir}
     install -m 0644 ${WORKDIR}/led-daemon.service ${D}${LED_DAEMON_INSTALL_PATH}
-    isntall -m 0744 ${S}/drivers/controller-node-led/leddaemon.py ${D}${bindir}/leddaemon.py
+    install -m 0744 ${S}/drivers/controller-node-led/leddaemon.py ${D}${bindir}/leddaemon.py
 }

@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 # CLI is part of the main Artie repository.
 SRC_URI = "git://github.com/MaxStrange/Artie.git;protocol=https;branch=main"
-SRC_URI[sha256sum] = "254fd7ed5b2fd36ee51f3249a7685dcb9372d4a1"
+SRC_URI[sha256sum] = "${ARTIE_RELEASE_SHA256}"
 SRCREV = "${AUTOREV}"
 PV = "1.0+git${SRCPV}"
 

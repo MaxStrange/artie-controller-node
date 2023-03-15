@@ -3,7 +3,7 @@ Description=LED user-space driver daemon.
 
 [Service]
 Type=exec
-ExecStart=/usr/bin/leddaemon.py
+ExecStart=/usr/bin/leddaemon.py heartbeat
 
 [Install]
 WantedBy=multi-user.target

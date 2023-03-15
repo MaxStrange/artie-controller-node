@@ -10,4 +10,5 @@ IMAGE_INSTALL += " packagegroup-artie-cli \
                    packagegroup-k3s-host \
                    docker \
                    expand-rootfs \
+                   led-daemon \
                  "

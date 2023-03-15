@@ -1,0 +1,9 @@
+[Unit]
+Description=LED user-space driver daemon.
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/leddaemon.py
+
+[Install]
+WantedBy=multi-user.target

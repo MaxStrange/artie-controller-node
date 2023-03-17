@@ -45,4 +45,8 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0644 ${WORKDIR}/led-daemon.service ${D}${LED_DAEMON_INSTALL_PATH}
     install -m 0744 ${S}/drivers/controller-node-led/leddaemon.py ${D}${bindir}/leddaemon.py
+
+    # Enable by default
+    install -d ${D}${sysconfdir}/systemd/system/multi-user.target.wants
+    ln -s -r ${D}${nonarch_base_libdir}/systemd/system/led-daemon.service ${D}${sysconfdir}/systemd/system/multi-user.target.wants/led-daemon.service
 }

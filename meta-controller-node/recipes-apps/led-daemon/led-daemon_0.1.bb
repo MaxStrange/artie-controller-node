@@ -26,6 +26,7 @@ RDEPENDS:${PN} += " python3 \
 LED_DAEMON_INSTALL_PATH = "${sysconfdir}/systemd/system/led-daemon.service"
 FILES:${PN} = "${LED_DAEMON_INSTALL_PATH} \
                ${bindir}/leddaemon.py \
+               ${sysconfdir}/systemd/system/multi-user.target.wants/led-daemon.service \
               "
 
 # Do nothing for the default tasks

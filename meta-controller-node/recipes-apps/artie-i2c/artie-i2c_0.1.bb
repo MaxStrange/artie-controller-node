@@ -2,7 +2,7 @@ SUMMARY = "Recipe for adding Artie I2C Python library."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-# CLI is part of the main Artie repository.
+# This library is part of the main Artie repository.
 SRC_URI = "git://github.com/MaxStrange/Artie.git;protocol=https;branch=main"
 SRC_URI[sha256sum] = "${ARTIE_RELEASE_SHA256}"
 SRCREV = "${AUTOREV}"

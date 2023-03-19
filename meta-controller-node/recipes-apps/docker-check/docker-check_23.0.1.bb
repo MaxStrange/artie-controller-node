@@ -3,7 +3,6 @@ DESCRIPTION = "${SUMMARY}\nTo use the check-config.sh script, you first need to 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-# CLI is part of the main Artie repository.
 SRC_URI = "git://github.com/moby/moby.git;protocol=https;nobranch=1;rev=bc3805a0a0d3b5bd3f0e6c69f46ac08dd53377c7"
 PV = "23.0.1+git${SRCPV}"
 

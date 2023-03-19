@@ -1,0 +1,26 @@
+name: controller-node-test
+services:
+  eyebrows:
+    image: $!REPLACE-ME-EYEBROWS-IMG$!
+    container_name: eyebrows
+    devices:
+      - "/dev:/dev"
+    environment:
+      - PORT=4242
+      - LOGLEVEL=info
+    ports:
+      - "4242:4242"
+    privileged: true
+    restart: unless-stopped
+  mouth:
+    image: $!REPLACE-ME-MOUTH-IMG$!
+    container_name: mouth
+    devices:
+      - "/dev:/dev"
+    environment:
+      - PORT=4243
+      - LOGLEVEL=info
+    ports:
+      - "4243:4243"
+    privileged: true
+    restart: unless-stopped

@@ -1,0 +1,20 @@
+[Unit]
+Description=OpenSSH Server
+After=network.target auditd.service
+ConditionPathExists=!/etc/ssh/sshd_not_to_be_run
+
+[Service]
+Environment="SSHD_OPTS="
+EnvironmentFile=-/etc/default/ssh
+ExecStartPre=@SBINDIR@/sshd -t
+ExecStart=@SBINDIR@/sshd -D $SSHD_OPTS
+ExecReload=@SBINDIR@/sshd -t
+ExecReload=@BINDIR@/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=notify
+
+[Install]
+WantedBy=multi-user.target
+Alias=ssh.service

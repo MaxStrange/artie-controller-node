@@ -25,5 +25,6 @@ do_configure() {
 
 # Install the script to the root directory
 do_install() {
-    install -m 0755 ${S}/contrib/check-config.sh ${D}/check-config.sh
+    install -d ${D}${ARTIE_FOLDER}
+    install -m 0755 ${S}/contrib/check-config.sh ${D}${ARTIE_FOLDER}/check-config.sh
 }

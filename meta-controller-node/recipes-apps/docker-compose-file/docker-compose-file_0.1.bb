@@ -8,7 +8,7 @@ PV = "0.1"
 
 S = "${WORKDIR}"
 
-RDEPENDS:${PN} += " docker-compose \
+RDEPENDS:${PN} += " python3-docker-compose \
                   "
 FILES:${PN} = "compose.yaml"
 
@@ -22,5 +22,6 @@ do_configure() {
 
 # Install the compose file to the root directory
 do_install() {
-    install -m 0755 ${S}/compose.yaml ${D}/compose.yaml
+    install -d ${D}${ARTIE_FOLDER}
+    install -m 0755 ${S}/compose.yaml ${D}${ARTIE_FOLDER}/compose.yaml
 }

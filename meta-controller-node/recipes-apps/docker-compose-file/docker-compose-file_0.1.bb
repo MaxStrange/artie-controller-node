@@ -10,7 +10,9 @@ S = "${WORKDIR}"
 
 RDEPENDS:${PN} += " python3-docker-compose \
                   "
-FILES:${PN} = "compose.yaml"
+FILES:${PN} = "${ARTIE_FOLDER} \
+               ${ARTIE_FOLDER}/compose.yaml \
+              "
 
 # Do nothing for the default tasks
 do_compile() {

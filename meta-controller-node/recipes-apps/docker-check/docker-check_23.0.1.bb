@@ -13,7 +13,9 @@ S = "${WORKDIR}/git"
 RDEPENDS:${PN} += " bash \
                   "
 
-FILES:${PN} = "check-config.sh"
+FILES:${PN} = "${ARTIE_FOLDER} \
+               ${ARTIE_FOLDER}/check-config.sh \
+              "
 
 # Do nothing for the default tasks
 do_compile() {

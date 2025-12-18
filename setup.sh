@@ -1,10 +1,12 @@
 #! /bin/bash
+# You can also run this build through Artie Tool.
+# This script is provided for convenience and reference.
 
 # Clone Yocto
 if [[ ! -d poky ]]; then
     git clone git://git.yoctoproject.org/poky
     cd poky
-    git checkout -t origin/kirkstone -b kirkstone-local
+    git checkout -t origin/scarthgap -b scarthgap-local
     cd ..
 fi
 
@@ -18,7 +20,7 @@ cd ..
 if [[ ! -d meta-raspberrypi ]]; then
     git clone https://github.com/agherzan/meta-raspberrypi
     cd meta-raspberrypi
-    git checkout -t origin/kirkstone -b kirkstone-local
+    git checkout -t origin/scarthgap -b scarthgap-local
     cd ..
 fi
 
@@ -30,14 +32,14 @@ fi
 if [[ ! -d meta-openembedded ]]; then
     git clone git://git.openembedded.org/meta-openembedded
     cd meta-openembedded
-    git checkout -t origin/kirkstone -b kirkstone-local
+    git checkout -t origin/scarthgap -b scarthgap-local
     cd ..
 fi
 
 if [[ ! -d meta-virtualization ]]; then
     git clone https://git.yoctoproject.org/git/meta-virtualization
     cd meta-virtualization
-    git checkout -t origin/kirkstone -b kirkstone-local
+    git checkout -t origin/scarthgap -b scarthgap-local
     cd ..
 fi
 

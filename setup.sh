@@ -26,7 +26,6 @@ fi
 
 if [[ ! -d meta-splash ]]; then
     git clone https://github.com/hamzamac/meta-splash.git
-    cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 fi
 
 if [[ ! -d meta-openembedded ]]; then
@@ -42,6 +41,9 @@ if [[ ! -d meta-virtualization ]]; then
     git checkout -t origin/scarthgap -b scarthgap-local
     cd ..
 fi
+
+# Add splash file
+cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 
 # Add .gitignored files
 DAEMON_PATH="meta-controller-node/recipes-apps/docker/files/daemon-fragment.json"

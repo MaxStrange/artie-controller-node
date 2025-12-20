@@ -6,5 +6,4 @@ PACKAGES = "${PN}"
 
 RDEPENDS:${PN} += " networkmanager \
                     networkmanager-nmtui \
-                    networkmanager-bash-completion \
                   "

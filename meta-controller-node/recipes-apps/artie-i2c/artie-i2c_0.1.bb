@@ -12,7 +12,7 @@ PV = "1.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 # This will cause this recipe to act using the setuptools3 do_compile/do_install tasks
-SETUPTOOLS_SETUP_PATH = "${S}/libraries/artie-i2c"
+SETUPTOOLS_SETUP_PATH = "${S}/framework/libraries/artie-i2c"
 inherit setuptools3
 
 RDEPENDS:${PN} += " python3 \

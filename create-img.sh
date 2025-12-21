@@ -1,13 +1,34 @@
 #! /bin/bash
-IMAGESDIR=$(pwd)/build/tmp/deploy/images/raspberrypi4-64
-RTFS_NAME="artie-image-dev-raspberrypi4-64.tar.bz2"
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -i|--image)
+      TARGET_IMAGE="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      shift # past argument
+      ;;
+  esac
+done
+
+SCRIPTDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+IMAGESDIR=${SCRIPTDIR}/build/tmp/deploy/images/raspberrypi4-64
+RTFS_NAME="${TARGET_IMAGE}-raspberrypi4-64.rootfs.tar.bz2"
 
 # All the stuff we need to copy to the SD card image
 KERNELIMG=${IMAGESDIR}/Image
 DTBS=${IMAGESDIR}/bcm2711-rpi-4-b.dtb
 BOOTFILESDIR=${IMAGESDIR}/bootfiles
 RTFS=${IMAGESDIR}/${RTFS_NAME}
-PI_IMG=$(pwd)/pi.img
+PI_IMG=${SCRIPTDIR}/pi.img
 TARGET_HOSTNAME="artie-controller-node"
 
 # Check for the right files before we do anything
@@ -109,3 +130,6 @@ sudo umount /tmp/mnt
 
 # Detach loopback device
 sudo losetup --detach ${LOOPDEV}
+
+# Rename pi.img to something more useful
+mv ${PI_IMG} "${TARGET_IMAGE}.img"

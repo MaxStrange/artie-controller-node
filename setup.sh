@@ -49,9 +49,9 @@ cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 DAEMON_PATH="meta-controller-node/recipes-apps/docker/files/daemon-fragment.json"
 if [[ ! -f $DAEMON_PATH ]]; then
     touch $DAEMON_PATH
-    echo "{\n" >> $DAEMON_PATH
-    echo "  \"insecure-registries\": [\"POINT ME TO LOCAL REGISTRY\"]\n" >> $DAEMON_PATH
-    echo "}\n" >> $DAEMON_PATH
+    echo "{" >> $DAEMON_PATH
+    echo "  \"insecure-registries\": [\"POINT ME TO LOCAL REGISTRY\"]" >> $DAEMON_PATH
+    echo "}" >> $DAEMON_PATH
 fi
 
 HOST_PATH="meta-controller-node/recipes-core/network/files/host-fragment"

@@ -8,9 +8,7 @@ PV = "0.1"
 
 S = "${WORKDIR}"
 
-RDEPENDS:${PN} += " python3-docker-compose \
-                  "
-FILES:${PN} = "${ARTIE_FOLDER} \
+FILES:${PN} = "${ARTIE_FOLDER}/ \
                ${ARTIE_FOLDER}/compose.yaml \
               "
 

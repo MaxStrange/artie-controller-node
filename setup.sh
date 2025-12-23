@@ -1,6 +1,32 @@
 #! /bin/bash
-# You can also run this build through Artie Tool.
-# This script is provided for convenience and reference.
+#
+# Args:
+# --insecure-registries <comma-separated list of insecure registries>
+# --hosts <comma-separated list of 'host<space>address' entries to add to /etc/hosts>
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -i|--insecure-registries)
+      INSECURE_REGISTRIES="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -h|--hosts)
+      HOSTS="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      shift # past argument
+      ;;
+  esac
+done
 
 # Clone Yocto
 if [[ ! -d poky ]]; then
@@ -45,18 +71,21 @@ fi
 # Add splash file
 cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 
-# Add .gitignored files
 DAEMON_PATH="meta-controller-node/recipes-apps/docker/files/daemon-fragment.json"
 if [[ ! -f $DAEMON_PATH ]]; then
     touch $DAEMON_PATH
     echo "{" >> $DAEMON_PATH
-    echo "  \"insecure-registries\": [\"POINT ME TO LOCAL REGISTRY\"]" >> $DAEMON_PATH
+    echo "  \"insecure-registries\": [" >> $DAEMON_PATH
+    echo "    $(echo $INSECURE_REGISTRIES | tr ',' '\n' | sed 's/^/"/' | sed 's/$/"/' | paste -sd, -)" >> $DAEMON_PATH
+    echo "  ]" >> $DAEMON_PATH
     echo "}" >> $DAEMON_PATH
 fi
 
 HOST_PATH="meta-controller-node/recipes-core/network/files/host-fragment"
 if [[ ! -f $HOST_PATH ]]; then
     touch $HOST_PATH
-    # This is a file I use to add useful IP addresses to the /etc/hosts file on the rootfs.
-    # Typically, it would be empty.
+    echo "# Custom /etc/hosts entries" >> $HOST_PATH
+    echo "" >> $HOST_PATH
+    echo "$HOSTS" | tr ',' '\n' >> $HOST_PATH
+    echo "" >> $HOST_PATH
 fi

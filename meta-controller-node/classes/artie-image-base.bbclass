@@ -12,4 +12,5 @@ IMAGE_INSTALL += " packagegroup-artie-cli \
                    expand-rootfs \
                    led-daemon \
                    set-locale \
+                   fontconfig \
                  "

@@ -7,4 +7,5 @@ IMAGE_INSTALL += " vim \
                    docker-check \
                    docker-compose-file \
                    openssh \
+                   systemd-analyze \
                  "

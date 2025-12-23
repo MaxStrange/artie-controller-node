@@ -11,4 +11,5 @@ IMAGE_INSTALL += " packagegroup-artie-cli \
                    docker \
                    expand-rootfs \
                    led-daemon \
+                   set-locale \
                  "

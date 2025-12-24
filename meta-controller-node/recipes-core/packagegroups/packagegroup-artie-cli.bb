@@ -10,4 +10,5 @@ RDEPENDS:${PN} += " python3 \
                     artie-cli \
                     artie-i2c \
                     artie-util \
+                    artie-tooling \
                   "

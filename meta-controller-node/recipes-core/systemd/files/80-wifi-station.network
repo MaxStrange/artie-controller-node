@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MIT-0
+# This file is part of the Artie Controller Node project,
+# copied from systemd-networkd examples to bring up wifi in station mode.
+[Match]
+Type=wlan
+WLANInterfaceType=station
+SSID=*
+
+[Network]
+DHCP=yes

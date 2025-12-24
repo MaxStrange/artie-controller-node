@@ -28,6 +28,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+echo "Insecure Registries: $INSECURE_REGISTRIES"
+echo "Hosts: $HOSTS"
+
 # Clone Yocto
 if [[ ! -d poky ]]; then
     git clone git://git.yoctoproject.org/poky
@@ -72,20 +75,22 @@ fi
 cp assets/splash.png meta-splash/recipes-core/psplash/files/logo.png
 
 DAEMON_PATH="meta-controller-node/recipes-apps/docker/files/daemon-fragment.json"
-if [[ ! -f $DAEMON_PATH ]]; then
-    touch $DAEMON_PATH
-    echo "{" >> $DAEMON_PATH
-    echo "  \"insecure-registries\": [" >> $DAEMON_PATH
-    echo "    $(echo $INSECURE_REGISTRIES | tr ',' '\n' | sed 's/^/"/' | sed 's/$/"/' | paste -sd, -)" >> $DAEMON_PATH
-    echo "  ]" >> $DAEMON_PATH
-    echo "}" >> $DAEMON_PATH
+if [[ -f $DAEMON_PATH ]]; then
+    rm $DAEMON_PATH
 fi
+touch $DAEMON_PATH
+echo "{" >> $DAEMON_PATH
+echo "  \"insecure-registries\": [" >> $DAEMON_PATH
+echo "    $(echo $INSECURE_REGISTRIES | tr ',' '\n' | sed 's/^/"/' | sed 's/$/"/' | paste -sd, -)" >> $DAEMON_PATH
+echo "  ]" >> $DAEMON_PATH
+echo "}" >> $DAEMON_PATH
 
 HOST_PATH="meta-controller-node/recipes-core/network/files/host-fragment"
-if [[ ! -f $HOST_PATH ]]; then
-    touch $HOST_PATH
-    echo "# Custom /etc/hosts entries" >> $HOST_PATH
-    echo "" >> $HOST_PATH
-    echo "$HOSTS" | tr ',' '\n' >> $HOST_PATH
-    echo "" >> $HOST_PATH
+if [[ -f $HOST_PATH ]]; then
+    rm $HOST_PATH
 fi
+touch $HOST_PATH
+echo "# Custom /etc/hosts entries" >> $HOST_PATH
+echo "" >> $HOST_PATH
+echo "$HOSTS" | tr ',' '\n' >> $HOST_PATH
+echo "" >> $HOST_PATH

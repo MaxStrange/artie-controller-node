@@ -6,8 +6,7 @@ inherit core-image
 IMAGE_FEATURES += "splash"
 
 IMAGE_INSTALL += " packagegroup-artie-cli \
-                   packagegroup-network \
-                   packagegroup-k3s-node \
+                   packagegroup-k3s-host \
                    docker \
                    expand-rootfs \
                    led-daemon \

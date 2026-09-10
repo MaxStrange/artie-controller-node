@@ -1,7 +1,8 @@
 # Artie Controller Node
 
-This is Artie's controller node's Yocto build configuration. To build Artie,
-please see [the Artie repository](https://github.com/MaxStrange/Artie/tree/master).
+The Artie Project is an open source developmental robotics platform, research effort, and reference robot.
+The documentation, the getting started guide, and the architecture overview live in the main
+repository: https://github.com/ArtieBots/Artie
 
 ## Development
 
